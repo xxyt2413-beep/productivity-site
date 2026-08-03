@@ -3,120 +3,221 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>স্বপ্নের ছোঁয়া ফ্যাশন</title>
 
 <style>
 *{
   box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f7f4f1;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f7f7f7;
   color:#222;
 }
 
 header{
   background:#111;
   color:white;
-  padding:22px 16px;
-  text-align:center;
+  padding:18px 20px;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 
-header h1{
-  margin:0;
-  font-size:30px;
+.nav{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-header p{
-  margin:8px 0 0;
-  color:#ddd;
+.logo{
+  font-size:24px;
+  font-weight:bold;
+}
+
+.nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:15px;
+  font-size:14px;
 }
 
 .hero{
-  padding:35px 18px;
+  background:linear-gradient(135deg,#111,#444);
+  color:white;
   text-align:center;
-  background:#fff;
+  padding:70px 20px;
 }
 
-.hero h2{
-  font-size:30px;
-  margin:5px 0 12px;
+.hero h1{
+  font-size:42px;
+  margin-bottom:15px;
 }
 
 .hero p{
-  font-size:17px;
-  color:#555;
-}
-
-.products{
-  max-width:1000px;
-  margin:auto;
-  padding:25px 15px;
-}
-
-.products h2{
-  text-align:center;
+  font-size:19px;
   margin-bottom:25px;
 }
 
-.grid{
+.btn{
+  display:inline-block;
+  background:#ff6b00;
+  color:white;
+  padding:14px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  border:none;
+  cursor:pointer;
+}
+
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:45px 20px;
+}
+
+.section-title{
+  text-align:center;
+  font-size:30px;
+  margin-bottom:30px;
+}
+
+.products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(4,1fr);
   gap:20px;
 }
 
-.card{
+.product{
   background:white;
-  border-radius:16px;
+  border-radius:15px;
   overflow:hidden;
   box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
-.card img{
+.product img{
   width:100%;
   height:280px;
   object-fit:cover;
 }
 
-.card-content{
-  padding:16px;
+.product-info{
+  padding:18px;
 }
 
-.card h3{
-  margin:0 0 8px;
+.product h3{
+  font-size:19px;
+  margin-bottom:8px;
+}
+
+.product p{
+  color:#666;
+  font-size:14px;
+  margin-bottom:12px;
 }
 
 .price{
-  font-size:20px;
+  color:#e65100;
+  font-size:21px;
   font-weight:bold;
-  margin:10px 0;
+  margin-bottom:15px;
 }
 
-.btn{
-  display:block;
-  text-align:center;
-  background:#111;
+.order-btn{
+  width:100%;
+  background:#25D366;
   color:white;
-  text-decoration:none;
+  border:none;
   padding:12px;
   border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
 }
 
-.contact{
+.about{
+  background:white;
+  border-radius:18px;
+  padding:35px;
   text-align:center;
-  background:#fff;
-  margin-top:20px;
-  padding:30px 15px;
+  line-height:1.8;
+}
+
+.order-box{
+  background:#111;
+  color:white;
+  border-radius:18px;
+  padding:35px;
+  max-width:650px;
+  margin:auto;
+}
+
+.order-box h2{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:8px;
+  font-size:15px;
+}
+
+textarea{
+  min-height:100px;
+}
+
+.submit{
+  width:100%;
+  background:#25D366;
+  color:white;
+  border:none;
+  padding:14px;
+  border-radius:8px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 footer{
-  text-align:center;
   background:#111;
-  color:white;
-  padding:18px;
-  margin-top:20px;
+  color:#aaa;
+  text-align:center;
+  padding:25px 15px;
+  margin-top:40px;
+}
+
+@media(max-width:800px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+}
+
+@media(max-width:500px){
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .nav a{
+    display:none;
+  }
+
+  .product img{
+    height:320px;
+  }
 }
 </style>
 </head>
@@ -124,63 +225,314 @@ footer{
 <body>
 
 <header>
-  <h1>স্বপ্নের ছোঁয়া ফ্যাশন ✨</h1>
-  <p>আপনার স্টাইলে নতুন ছোঁয়া</p>
+  <div class="nav">
+    <div class="logo">স্বপ্নের ছোঁয়া ফ্যাশন</div>
+
+    <div>
+      <a href="#products">পণ্য</a>
+      <a href="#about">আমাদের সম্পর্কে</a>
+      <a href="#order">অর্ডার</a>
+    </div>
+  </div>
 </header>
 
+
 <section class="hero">
-  <h2>স্টাইল হোক আপনার নিজের মতো</h2>
-  <p>ট্রেন্ডি ও আকর্ষণীয় পোশাকের কালেকশন</p>
+
+  <h1>স্বপ্নের ছোঁয়া ফ্যাশন 👕</h1>
+
+  <p>
+    স্টাইলিশ পোশাক, সুন্দর ডিজাইন এবং সাশ্রয়ী দামে।
+  </p>
+
+  <a href="#products" class="btn">
+    কালেকশন দেখুন
+  </a>
+
 </section>
 
-<section class="products">
 
-<h2>আমাদের জনপ্রিয় কালেকশন 👕</h2>
+<section class="section" id="products">
 
-<div class="grid">
+  <h2 class="section-title">
+    আমাদের জনপ্রিয় কালেকশন
+  </h2>
 
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80">
-  <div class="card-content">
-    <h3>ক্লাসিক টি-শার্ট</h3>
-    <p>আরামদায়ক ও স্টাইলিশ ডিজাইন।</p>
-    <div class="price">৳৫৫০</div>
-    <a class="btn" href="https://wa.me/" target="_blank">অর্ডার করুন</a>
+  <div class="products">
+
+    <!-- Product 1 -->
+    <div class="product">
+
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80">
+
+      <div class="product-info">
+
+        <h3>ক্লাসিক সাদা টি-শার্ট</h3>
+
+        <p>
+          আরামদায়ক ও স্টাইলিশ দৈনন্দিন পোশাক।
+        </p>
+
+        <div class="price">
+          ৳ ৪৫০
+        </div>
+
+        <button class="order-btn"
+        onclick="selectProduct('ক্লাসিক সাদা টি-শার্ট')">
+          WhatsApp-এ অর্ডার
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- Product 2 -->
+    <div class="product">
+
+      <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=700&q=80">
+
+      <div class="product-info">
+
+        <h3>ব্ল্যাক স্মাইল টি-শার্ট</h3>
+
+        <p>
+          তরুণদের জন্য ট্রেন্ডি ও আকর্ষণীয় ডিজাইন।
+        </p>
+
+        <div class="price">
+          ৳ ৫৫০
+        </div>
+
+        <button class="order-btn"
+        onclick="selectProduct('ব্ল্যাক স্মাইল টি-শার্ট')">
+          WhatsApp-এ অর্ডার
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- Product 3 -->
+    <div class="product">
+
+      <img src="https://images.unsplash.com/photo-1527719327859-2c5c6e7e8b8f?auto=format&fit=crop&w=700&q=80">
+
+      <div class="product-info">
+
+        <h3>গ্রাফিক প্রিন্ট টি-শার্ট</h3>
+
+        <p>
+          আধুনিক গ্রাফিক ডিজাইনের ফ্যাশনেবল টি-শার্ট।
+        </p>
+
+        <div class="price">
+          ৳ ৬৫০
+        </div>
+
+        <button class="order-btn"
+        onclick="selectProduct('গ্রাফিক প্রিন্ট টি-শার্ট')">
+          WhatsApp-এ অর্ডার
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- Product 4 -->
+    <div class="product">
+
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=700&q=80">
+
+      <div class="product-info">
+
+        <h3>ড্রিম ফ্যাশন টি-শার্ট</h3>
+
+        <p>
+          আরাম ও ফ্যাশনের সুন্দর সমন্বয়।
+        </p>
+
+        <div class="price">
+          ৳ ৫৯০
+        </div>
+
+        <button class="order-btn"
+        onclick="selectProduct('ড্রিম ফ্যাশন টি-শার্ট')">
+          WhatsApp-এ অর্ডার
+        </button>
+
+      </div>
+    </div>
+
   </div>
-</div>
 
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=600&q=80">
-  <div class="card-content">
-    <h3>ফ্যাশন টি-শার্ট</h3>
-    <p>তরুণদের জন্য ট্রেন্ডি লুক।</p>
-    <div class="price">৳৬৫০</div>
-    <a class="btn" href="https://wa.me/" target="_blank">অর্ডার করুন</a>
-  </div>
-</div>
-
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80">
-  <div class="card-content">
-    <h3>স্মার্ট ক্যাজুয়াল</h3>
-    <p>প্রতিদিনের জন্য সুন্দর ও আরামদায়ক।</p>
-    <div class="price">৳৭৫০</div>
-    <a class="btn" href="https://wa.me/" target="_blank">অর্ডার করুন</a>
-  </div>
-</div>
-
-</div>
 </section>
 
-<section class="contact">
-  <h2>অর্ডার করতে যোগাযোগ করুন 📞</h2>
-  <p>আপনার পছন্দের পোশাক বেছে নিয়ে আমাদের সাথে যোগাযোগ করুন।</p>
-  <p><strong>ফোন:</strong> 01970565512</p>
+
+<section class="section" id="about">
+
+  <h2 class="section-title">
+    কেন স্বপ্নের ছোঁয়া ফ্যাশন?
+  </h2>
+
+  <div class="about">
+
+    <p>
+      আমরা বিশ্বাস করি, ভালো পোশাক শুধু আপনার চেহারা নয়,
+      আপনার আত্মবিশ্বাসও বাড়িয়ে দেয়।
+    </p>
+
+    <br>
+
+    <p>
+      তাই স্বপ্নের ছোঁয়া ফ্যাশনে আমরা নিয়ে এসেছি
+      আধুনিক ডিজাইন, আরামদায়ক কাপড় এবং সাশ্রয়ী মূল্যের
+      ফ্যাশন কালেকশন।
+    </p>
+
+  </div>
+
 </section>
+
+
+<section class="section" id="order">
+
+  <div class="order-box">
+
+    <h2>অর্ডার করুন 🛍️</h2>
+
+    <input
+      type="text"
+      id="name"
+      placeholder="আপনার নাম">
+
+    <input
+      type="tel"
+      id="phone"
+      placeholder="মোবাইল নম্বর">
+
+    <select id="product">
+
+      <option value="">
+        পণ্য নির্বাচন করুন
+      </option>
+
+      <option>
+        ক্লাসিক সাদা টি-শার্ট
+      </option>
+
+      <option>
+        ব্ল্যাক স্মাইল টি-শার্ট
+      </option>
+
+      <option>
+        গ্রাফিক প্রিন্ট টি-শার্ট
+      </option>
+
+      <option>
+        ড্রিম ফ্যাশন টি-শার্ট
+      </option>
+
+    </select>
+
+    <textarea
+      id="address"
+      placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন">
+    </textarea>
+
+    <button
+      class="submit"
+      onclick="orderWhatsApp()">
+      WhatsApp-এ অর্ডার পাঠান
+    </button>
+
+  </div>
+
+</section>
+
 
 <footer>
-  © 2026 স্বপ্নের ছোঁয়া ফ্যাশন — সর্বস্বত্ব সংরক্ষিত
+
+  <p>
+    © 2026 স্বপ্নের ছোঁয়া ফ্যাশন
+  </p>
+
+  <p>
+    আপনার স্টাইল, আপনার পরিচয় ❤️
+  </p>
+
 </footer>
+
+
+<script>
+
+function selectProduct(productName){
+
+  document.getElementById("product").value = productName;
+
+  document.getElementById("order").scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+function orderWhatsApp(){
+
+  var name =
+    document.getElementById("name").value;
+
+  var phone =
+    document.getElementById("phone").value;
+
+  var product =
+    document.getElementById("product").value;
+
+  var address =
+    document.getElementById("address").value;
+
+
+  if(name === "" ||
+     phone === "" ||
+     product === "" ||
+     address === ""){
+
+    alert("দয়া করে সব তথ্য পূরণ করুন।");
+
+    return;
+  }
+
+
+  /*
+   * এখানে আপনার নিজের WhatsApp নম্বর বসাবেন।
+   * দেশের কোডসহ নম্বর লিখবেন।
+   *
+   * উদাহরণ:
+   * 8801XXXXXXXXX
+   */
+
+  var whatsappNumber = "8801XXXXXXXXX";
+
+
+  var message =
+    "স্বপ্নের ছোঁয়া ফ্যাশনে নতুন অর্ডার%0A%0A" +
+    "নাম: " + name + "%0A" +
+    "মোবাইল: " + phone + "%0A" +
+    "পণ্য: " + product + "%0A" +
+    "ঠিকানা: " + address;
+
+
+  var url =
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    message;
+
+
+  window.open(url,"_blank");
+
+}
+
+</script>
 
 </body>
 </html>
