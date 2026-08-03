@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Productivity</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: auto;
+      padding: 30px 20px;
+      background: #f5f5f5;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+    h1 { margin-top: 0; }
+    input, button {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    input { width: 65%; }
+    button { cursor: pointer; }
+    li {
+      margin: 12px 0;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>আমার Productivity Space 🚀</h1>
+    <p>আজকের কাজগুলো গুছিয়ে রাখি।</p>
+  </div>
+
+  <div class="card">
+    <h2>আজকের কাজ</h2>
+    <input id="taskInput" placeholder="একটি কাজ লিখুন">
+    <button onclick="addTask()">যোগ করুন</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <div class="card">
+    <h2>নোট 📝</h2>
+    <textarea id="notes" rows="6" style="width:100%" placeholder="এখানে নোট লিখুন..."></textarea>
+  </div>
+
+  <script>
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      if (!input.value.trim()) return;
+
+      const li = document.createElement("li");
+      li.textContent = "☐ " + input.value;
+      li.onclick = () => li.textContent = "☑ " + input.value;
+
+      document.getElementById("taskList").appendChild(li);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
